@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    double x, a, G, F, Y;
+    const float pi=3.14;
+    char Function;
+
+    printf("Введите Х:");
+    scanf("%lf", &x);
+    printf("Введите A:");
+    scanf("%lf", &a);
+    Func:
+    printf("Введите название функции(G, F, Y):\n");
+    scanf("%s", &Function);
+
+    switch (Function) {
+        case 'G':
+            if (fabs(35 * a * a + 37 * a * x + 6 * x * x) >= 0.0001)
+            {
+                G = (3 * (-3 * a * a + 2 * a * x + 21 * x * x) / (35 * a * a + 37 * a * x + 6 * x * x));
+                printf("G = %lf", G);
+            }
+            else
+                printf("Невозможно вычислить функцию при данных значениях.");
+            break;
+        case 'F':
+            if (fabs(sin(20*(a*a)+9*a*x-20*(x*x)-pi/2)) >= 0.0001)
+            {
+                F=((-1)/(sin(20*(a*a)+9*a*x-20*(x*x)-pi/2)));
+                printf("F = %lf", F);
+            }
+            else
+                printf("Невозможно вычислить функцию при данных значениях.");
+            break;
+        case 'Y':
+            if (fabs(a*a-6*a*x+5*(x*x)+1) <= 1)
+            {
+                Y = acos(a*a-6*a*x+5*(x*x)+1);
+                printf("Y = %lf", Y);
+            }
+            else
+                printf("Невозможно вычислить функцию при данных значениях.");
+            break;
+        default:
+            printf("Неправильно выбрана функция.");
+            goto Func;
+    }
+    return 0;
+};
