@@ -1,4 +1,3 @@
-# coding=utf-8
 from math import sin
 from math import acos
 from math import fabs
