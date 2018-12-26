@@ -3,7 +3,7 @@
 
 int main()
 {
-    double x, a, G, F, Y;
+    float x, a, G, F, Y;
     const float pi=3.14;
     char Function;
 
