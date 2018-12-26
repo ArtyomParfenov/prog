@@ -54,7 +54,7 @@ int main() {
                 case 'Y':
                     start_result = ( acos(a * a - 6 * a * sx + 5 * (sx * sx) + 1));
                     for (x = sx; x <= ex; x += step)
-                        if ( fabs( a * a - 6 * a * x + 5 * (x * x) + 1) <= 1 {
+                        if ( fabs(a * a - 6 * a * x + 5 * (x * x) + 1) <= 1) {
                             Y = acos(a * a - 6 * a * x + 5 * (x * x) + 1);
                             printf("При Х = %lf, A = %lf, Y = %lf (step = %lf)\n", x, a, Y, step);
                             end_result = Y;
