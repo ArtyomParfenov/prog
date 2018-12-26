@@ -68,7 +68,7 @@ while work_pr == 1:
     print('╚═════════╩═════════╩═════════╝')
     print('Max = ' + str(max(massiv)) + ', Min = ' + str(min(massiv)))
 
-    print ('We work on?\n   (1 - yes; 0 - no)')
+    print ('Try again?\n   (1 - yes; 0 - no)')
     work_pr = int(input())
     if work_pr == 1:
         continue
