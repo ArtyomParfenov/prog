@@ -4,9 +4,12 @@
 #include <omp.h>
 #include <time.h>
 
+#define N 10000 
+//const int N = 100;
+
 struct Points {
-    double pos_x[100];
-    double pos_y[100];
+    double pos_x[N];
+    double pos_y[N];
 };
 
 struct MainPoint {
@@ -23,7 +26,7 @@ Points RandomPoints(void) /*генерируем случайные точки*/
     int i = 0;
     srand(time(NULL));
 
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < N; i++) {
         Positions.pos_x[i] = (double) rand() / RAND_MAX * (5.0 + 5.0);
         Positions.pos_y[i] = (double) rand() / RAND_MAX * (5.0 + 5.0);
     }
@@ -44,13 +47,13 @@ int Amount_Of_Points(double rad) /*получаем кол-во точек в о
     int i = 0, change = 0, amount = 0;;
     srand(time(NULL));
 
-    change = rand() % 100;
+    change = rand() % N;
 
     mas = RandomPoints();
     mas.pos_x[change] = dx.mpx;
     mas.pos_y[change] = dx.mpy;
 
-    for (i = 0; i < 100; i++)
+    for (i = 0; i < N; i++)
     {
         inreg.mpx = mas.pos_x[i];
         inreg.mpy = mas.pos_y[i];
@@ -68,13 +71,15 @@ int Amount_Of_Points(double rad) /*получаем кол-во точек в о
 int main()
 {
     double radius,start,stop;
+    int ap;
     srand(time(NULL));
 
     start = omp_get_wtime();
     radius = (double) rand() / RAND_MAX * (20.0);
-    printf("Радиус: %lf\n", radius);
-    printf("Точки в окресности: %d\n", Amount_Of_Points(radius));
+    ap = Amount_Of_Points(radius);
     stop = omp_get_wtime();
+    printf("Радиус: %lf\n", radius);
+    printf("Точки в окресности: %d\n", ap);
     printf("Время работы: %lf \n\n", (stop - start));
     return 0;
 }
